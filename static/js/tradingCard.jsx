@@ -21,13 +21,13 @@ const tradingCardData = [
   },
   {
     name: "Seed.py",
-    skill: "making curry dishes",
+    skill: "clifff diving",
     imgUrl: "/static/img/seedpy.jpeg",
     cardId: 5,
   },
   {
     name: "Polymorphism",
-    skill: "costumes",
+    skill: "turning screams into energy",
     imgUrl: "/static/img/polymorphism.jpeg",
     cardId: 6,
   },
@@ -43,27 +43,20 @@ function TradingCard(props) {
   );
 }
 
-ReactDOM.render(
-  <TradingCard name="Balloonicorn" skill="video games" imgUrl="/static/img/balloonicorn.jpg" />,
-  document.querySelector('#balloonicorn'),
-);
+function TradingCardContainer(props) {
+  const tradingCards = [];
 
-ReactDOM.render(
-  <TradingCard name="Float" skill="baking pretzels" imgUrl="/static/img/float.jpg" />,
-  document.querySelector('#float'),
-);
+  for (const currentCard of tradingCardData) {
+    tradingCards.push(
+      <TradingCard
+      name= {currentCard.name}
+      skill= {currentCard.skill}
+      imgUrl= {currentCard.imgUrl}
+      key= {currentCard.cardId}
+      />
+    );
+  }
+  return <React.Fragment>{tradingCards}</React.Fragment>;
+}
 
-ReactDOM.render(
-  <TradingCard name="Llambda" skill="knitting scarves" imgUrl="/static/img/llambda.jpg" />,
-  document.querySelector('#llambda'),
-);
-
-ReactDOM.render(
-  <TradingCard name="Seedpy" skill="cliff diving" imgUrl="/static/img/seedpy.jpeg" />,
-  document.querySelector('#seedpy'),
-);
-
-ReactDOM.render(
-  <TradingCard name="Polymorphism" skill="turning screams into energy" imgUrl="/static/img/polymorphism.jpeg" />,
-  document.querySelector('#polymorphism'),
-);
+ReactDOM.render(<TradingCardContainer />, document.querySelector('#all-cards'));

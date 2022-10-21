@@ -35,7 +35,7 @@ const tradingCardData = [
 
 function TradingCard(props) {
   return (
-    <div className="card">
+    <div className="card" id={props.key}>
       <h2>Name: {props.name}</h2>
       <img src={props.imgUrl} alt="profile" />
       <h2>Skill: {props.skill}</h2>
@@ -44,6 +44,10 @@ function TradingCard(props) {
 }
 
 function TradingCardContainer(props) {
+  /** 
+  * for loop to get the dataTradingCard dictionary
+  * and appending it into the currentCard 
+  **/
   const tradingCards = [];
 
   for (const currentCard of tradingCardData) {
